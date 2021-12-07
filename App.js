@@ -266,7 +266,21 @@ const App = () => {
               marginVertical: 20,
             }}
           />
-
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              marginHorizontal: 20,
+              marginBottom: 5,
+            }}>
+            <Text style={{fontSize: 16, fontWeight: '500'}}>Title</Text>
+            <View style={{flexDirection: 'row'}}>
+              <Text style={{fontSize: 16, fontWeight: '500'}}>Local</Text>
+              <Text style={{marginLeft: 10, fontSize: 16, fontWeight: '500'}}>
+                Server
+              </Text>
+            </View>
+          </View>
           {TICKERS.map((ticker, index) => {
             return (
               <View
@@ -278,11 +292,19 @@ const App = () => {
                   marginVertical: 5,
                 }}>
                 <Text>{ticker}</Text>
-                <Switch
-                  trackColor={{false: '#767577', true: '#81b0ff'}}
-                  onValueChange={() => handleSwitch(ticker)}
-                  value={filteredTickers.includes(ticker)}
-                />
+                <View style={{flexDirection: 'row'}}>
+                  <Switch
+                    trackColor={{false: '#767577', true: '#81b0ff'}}
+                    onValueChange={() => handleSwitch(ticker)}
+                    value={filteredTickers.includes(ticker)}
+                  />
+                  <Switch
+                    trackColor={{false: '#767577', true: '#81b0ff'}}
+                    onValueChange={() => handleSwitch(ticker)}
+                    value={filteredTickers.includes(ticker)}
+                    style={{marginLeft: 5}}
+                  />
+                </View>
               </View>
             );
           })}
